@@ -1,5 +1,5 @@
 //variables
-let year = 1;
+let year = 3001;
 let starved = 0;
 let immigrants = 5;
 let population = 100;
@@ -32,6 +32,7 @@ function gameUpdate() {
   rationsStore = rationsStore - rats;
   landTrade = Math.floor(Math.random() * 9) + 17;
   rations = rationsStore;
+
 }
 //ration updating
 $(".landBuy").addEventListener("onKeyUp",rationCalc());
