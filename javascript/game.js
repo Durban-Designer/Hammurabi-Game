@@ -1,3 +1,4 @@
+alert("hello");
 //variables
 let year = 3001;
 let starved = 0;
@@ -32,7 +33,16 @@ function gameUpdate() {
   rationsStore = rationsStore - rats;
   landTrade = Math.floor(Math.random() * 9) + 17;
   rations = rationsStore;
-
+  $(".year").innerHTML = year;
+  $(".starved").innerHTML = starved;
+  $(".immigrants").innerHTML = immigrants;
+  $(".population").innerHTML = population;
+  $(".land").innerHTML = land;
+  $(".harvest").innerHTML = harvest;
+  $(".rats").innerHTML = rats;
+  $(".rationsStore").innerHTML = rationsStore;
+  $(".landTrade").innerHTML = landTrade;
+  $(".rationsCounter").innerHTML = rations;
 }
 //ration updating
 $(".landBuy").addEventListener("onKeyUp",rationCalc());
