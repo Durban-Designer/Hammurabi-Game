@@ -13,7 +13,7 @@ let landBuy = $(".landBuy").value;
 let food = $(".food").value;
 let plant = $(".plant").value;
 //gameUpdate
-$(".makeItSo").click(gameUpdate());
+$(".makeItSo").on("click", gameUpdate);
 function gameUpdate() {
   year++;
   foodCalc = food/20 - population;
@@ -32,29 +32,29 @@ function gameUpdate() {
   rationsStore = rationsStore - spaceCrabs;
   landTrade = Math.floor(Math.random() * 9) + 17;
   rations = rationsStore;
-  $(".year").innerHTML = year;
-  $(".starved").innerHTML = starved;
-  $(".immigrants").innerHTML = immigrants;
-  $(".population").innerHTML = population;
-  $(".land").innerHTML = land;
-  $(".harvest").innerHTML = harvest;
-  $(".spaceCrabs").innerHTML = spaceCrabs;
-  $(".rationsStore").innerHTML = rationsStore;
-  $(".landTrade").innerHTML = landTrade;
-  $(".rationsCounter").innerHTML = rations;
+  $(".year").html(year);
+  $(".starved").html(starved);
+  $(".immigrants").html(immigrants);
+  $(".population").html(population);
+  $(".land").html(land);
+  $(".harvest").html(harvest);
+  $(".spaceCrabs").html(spaceCrabs);
+  $(".rationsStore").html(rationsStore);
+  $(".landTrade").html(landTrade);
+  $(".rationsCounter").html(rations);
 }
 //ration updating
-$(".landBuy").on("onKeyUp",rationCalc());
-$(".food").on("onKeyUp",rationCalc());
-$(".plant").on("onKeyUp",rationCalc());
+$( ".landBuy" ).on("keyup",rationCalc);
+$( ".food" ).on("keyup", rationCalc);
+$( ".plant" ).on("keyup", rationCalc);
 function rationCalc() {
   rations = rationsStore - (landBuy * landTrade) - food - plant;
-  $(".rationCounter").innerHTML = rations;
+  $(".rationCounter").html(rations);
   //can update logic
   if (rations < 0) {
     $(".button").removeClass(".makeItSo");
+  }
   if (rations >= 0) {
     $(".button").addClass(".makeItSo");
-  }
   }
 }
