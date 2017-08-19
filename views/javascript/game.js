@@ -58,3 +58,7 @@ function rationCalc() {
   }
   }
 }
+$(".startNew").click(gameNew());
+function gameNew() {
+  location.reload();
+  }
