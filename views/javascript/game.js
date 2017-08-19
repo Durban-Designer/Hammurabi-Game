@@ -1,4 +1,3 @@
-alert("hello");
 //variables
 let year = 3001;
 let starved = 0;
@@ -14,7 +13,7 @@ let landBuy = $(".landBuy").value;
 let food = $(".food").value;
 let plant = $(".plant").value;
 //gameUpdate
-$(".makeItSo").addEventListener("click", gameUpdate());
+$(".makeItSo").click(gameUpdate());
 function gameUpdate() {
   year++;
   foodCalc = food/20 - population;
@@ -45,16 +44,16 @@ function gameUpdate() {
   $(".rationsCounter").innerHTML = rations;
 }
 //ration updating
-$(".landBuy").addEventListener("onKeyUp",rationCalc());
-$(".food").addEventListener("onKeyUp",rationCalc());
-$(".plant").addEventListener("onKeyUp",rationCalc());
+$(".landBuy").on("onKeyUp",rationCalc());
+$(".food").on("onKeyUp",rationCalc());
+$(".plant").on("onKeyUp",rationCalc());
 function rationCalc() {
   rations = rationsStore - (landBuy * landTrade) - food - plant;
   $(".rationCounter").innerHTML = rations;
   //can update logic
   if (rations < 0) {
     $(".button").removeClass(".makeItSo");
-  else if (rations >= 0) {
+  if (rations >= 0) {
     $(".button").addClass(".makeItSo");
   }
   }
