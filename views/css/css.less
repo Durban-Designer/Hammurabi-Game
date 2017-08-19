@@ -1,0 +1,108 @@
+/*LESS Variables for Colors  */
+
+@primary-color:#7071b5;
+@accent-color:#29005d;
+@background-color:#000024;
+@bold-font:'Righteous', cursive;
+@light-font:'Aldrich', sans-serif;
+
+/*end of variable declaration */
+
+/*Background*/
+body {
+  background-image: url(/images/BackgroundPC.png);
+  background-position: center center;
+  background-color: @background-color;
+  background-attachment: fixed;
+  background-size: cover;
+}
+/*Background End*/
+
+/*Report*/
+h1 {
+  color:@primary-color;
+  font-family: @bold-font;
+  font-size: 44px;
+}
+
+h4 {
+  color:@primary-color;
+  font-family:@light-font;
+  font-size: 16px;
+}
+
+.info {
+  column-count: 2;
+  width: 50%;
+  text-align: justify;
+}
+
+.report {
+  color:@primary-color;
+  font-family:@light-font;
+  font-size: 12px;
+  margin-bottom: 40px;
+}
+
+strong {
+  color:@primary-color;
+  font-family: @bold-font;
+  font-size: 16px;
+}
+
+.count {
+  float: right;
+  color:@primary-color;
+  border: 5px;
+  font-size: 18px;
+}
+/*Report end*/
+
+/*questions*/
+.input {
+  text-align: justify;
+  display: block;
+  color:@primary-color;
+  font-family:@light-font;
+  font-size: 12px;
+}
+
+textarea {
+  margin-top: 4px;
+  margin-bottom: 8px;
+  font-family:@light-font;
+  border-radius: 6px;
+
+}
+/*questions end*/
+
+/*buttons*/
+.btn {
+  margin-top: 4%;
+}
+
+button
+{
+  -webkit-border-radius: 6;
+    -moz-border-radius: 6;
+    border-radius: 6px;
+    color: @primary-color;
+    font-family: @bold-font;
+    font-size: 14px;
+    background: none;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+button:hover {
+  background-color: @accent-color;
+}
+
+.makeItSo {
+  margin-left: 60px;
+}
+
+.startNew {
+  margin-right: 60px;
+}
+/*buttons end*/
