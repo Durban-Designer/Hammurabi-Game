@@ -1,10 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Hammurabi Game Home</title>
-  </head>
-  <body>
-    
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title>Hammurabi Game Home</title>
+  <link rel="stylesheet/less" type="text/css" href="/css/css.less">
+  <link href="https://fonts.googleapis.com/css?family=Aldrich|Righteous" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/less.js/2.7.2/less.min.js" type="text/javascript"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript" src="../javascript/game.js"></script>
+</head>
+<body>
+
+  <center><h1>HAMMURABI 3000</h1>
+  <h4>A GAME OF GALACTIC STRATEGY AND MASS RESOURCE ALOTMENT</h4>
+    <div class="info">
+      <div class="report">
+        <strong>Overlord Hammurabi</strong>: I beg to report to you,
+        In the <strong>Year <span class="year">3001</span></strong>,   <strong><span class="starved">0</span></strong> civilians starved.
+        <strong><span class="immigrants">5</span></strong> civilians came to the city.
+        The Dominion population is now <strong><span class="population">100</span></strong>.
+        The Dominion now owns <strong><span class="land">1000</span></strong> quadrants.
+        You harvested <strong><span class="harvest">3</span></strong> rations per quadrant.
+        Space crabs ate <strong><span class="rats">200</span></strong> rations.
+        You now have <strong><span class="rationsStore">2800</span></strong> rations in store.
+        Space is trading at <strong><span class="landTrade">22</span></strong> rations per quadrant.
+      </div>
+      <div class="count">
+        <span class="rationCounter"><strong>2800</strong></span> rations remain!
+      </div>
+      <div class="input"></br>
+        <span class="question">How many quadrants do you wish to appropriate?</span> </br><textarea placeholder="enter negative to barter" class="landBuy" rows="1" cols="25"></textarea></br>
+        <span class="question">How many rations do you wish to feed you civilians?</span> </br><textarea placeholder="each citizen needs 20/year" class="food" rows="1" cols="25"></textarea></br>
+        <span class="question">How many quadrants do you wish to inseminate?</span> </br><textarea placeholder="quadrant = 1ration" class="plant" rows="1" cols="25" ></textarea>
+      </div>
+    </div>
+    <div class="btn">
+      <button class="startNew">New Game</button>
+      <button class="makeItSo">Make it So!</button>
+    </div>
+  </center>
+</body>
 </html>
