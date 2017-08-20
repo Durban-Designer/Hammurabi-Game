@@ -9,24 +9,28 @@ let spaceCrabs = 200;
 let rationsStore = 2800;
 let landTrade = 22;
 let rations = 2800;
-let landBuy = $(".landBuy").value;
-let food = $(".food").value;
-let plant = $(".plant").value;
+let starvedTotal = 0;
+let points = 0;
+var landBuy, food, plant, plagueNumber, landRatio;
 //gameUpdate
-$(".makeItSo").on("click", gameUpdate);
+$(".makeItSo").off().on("click", gameUpdate);
 function gameUpdate() {
+  landBuy = $(".landBuy").val();
+  food = $(".food").val();
+  plant = $(".plant").val();
   year++;
-  foodCalc = food/20 - population;
-  if (foodCalc > 0) {
+  foodCalc = population - food/20;
+  if (foodCalc < 0) {
     starved = 0;
   }
   else {
   starved = foodCalc;
   }
+  starvedTotal = Number(starvedTotal) + Number(starved);
   immigrants = Math.floor(Math.random() * 10);
   population = population - starved + immigrants;
-  land = land + landBuy;
-  harvest = Math.floor(Math.random() * 5);
+  land = Number(land) + Number(landBuy);
+  harvest = Math.floor(Math.random() * 5) + 1;
   rationsStore = rationsStore - food + (harvest * plant);
   spaceCrabs = Math.floor(Math.random() * .2) * rationsStore;
   rationsStore = rationsStore - spaceCrabs;
@@ -41,27 +45,71 @@ function gameUpdate() {
   $(".spaceCrabs").html(spaceCrabs);
   $(".rationsStore").html(rationsStore);
   $(".landTrade").html(landTrade);
-  $(".rationsCounter").html(rations);
+  $(".rationCounter").html(rations);
+  $( ".landBuy" ).val("");
+  $( ".food" ).val("");
+  $( ".plant" ).val("");
+  //plague functionality
+  plague = Math.floor(Math.random() * 10) + 1;
+  plagueNumber = Math.ceil((Math.random() * .6) * population) + 1;
+  $(".plague").css({display: "none"});
+  if (plague == 6 || plague == 7) {
+    $(".plague").css({display: "inline"});
+    $(".plagueNumber").html(plagueNumber);
+    population = population - plagueNumber;
+    $(".population").html(population);
+  }
+  //game ending
   if (year == 3011) {
-    alert("YOU WIN!!");
+    landRatio = land / population;
+    alert(landRatio);
+    if (starvedTotal == 0) {
+      points = points + 1;
+    }
+    if (starvedTotal > 10) {
+      points = points - 1;
+    }
+    if (starvedTotal > 20) {
+      points = points - 1;
+    }
+    if (landRatio > 10) {
+      points = points + 1;
+    }
+    if (landRatio > 20) {
+      points = points + 1;
+    }
+    if (landRatio < 10) {
+      points = points - 1;
+    }
+    if (landRatio < 20) {
+      points = points - 1;
+    }
+    alert("YOU WIN!! You got " + points + "!");
   }
 }
 //ration updating
-$( ".landBuy" ).on("keyup"), rationCalc);
+$( ".landBuy" ).on("keyup", rationCalc);
 $( ".food" ).on("keyup", rationCalc);
 $( ".plant" ).on("keyup", rationCalc);
 function rationCalc() {
+  landBuy = $(".landBuy").val();
+  food = $(".food").val();
+  plant = $(".plant").val();
+  landTotal = Number(land) + Number(landBuy);
+  maxTill = population * 10;
   rations = rationsStore - (landBuy * landTrade) - food - plant;
   $(".rationCounter").html(rations);
   //can update logic
-  if (rations < 0) {
-    $(".button").removeClass(".makeItSo");
+  if (rations < 0 || plant > landTotal || landTotal < 0 || food < 0 || plant < 0 || plant > maxTill) {
+    $(".makeItSo").off();
+    $(".makeItSo").css({color: "#f00"});
   }
-  if (rations >= 0) {
-    $(".button").addClass(".makeItSo");
+  if (rations >= 0 & plant <= landTotal & landTotal >= 0 & food >= 0 & plant >= 0 & plant <= maxTill) {
+    $(".makeItSo").off().on("click", gameUpdate);
+    $(".makeItSo").css({color: "#7071b5"});
   }
 }
-$(".startNew").on("click", refresh);
-  function refresh() {
+//new game
+$(".startNew").on("click", function(){
   location.reload();
-  }
+});
