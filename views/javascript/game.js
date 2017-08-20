@@ -10,7 +10,8 @@ let rationsStore = 2800;
 let landTrade = 22;
 let rations = 2800;
 let starvedTotal = 0;
-var landBuy, food, plant, plagueNumber;
+let points = 0;
+var landBuy, food, plant, plagueNumber, landRatio;
 //gameUpdate
 $(".makeItSo").off().on("click", gameUpdate);
 function gameUpdate() {
@@ -60,8 +61,30 @@ function gameUpdate() {
   }
   //game ending
   if (year == 3011) {
-    alert("YOU WIN!!");
-    alert(starvedTotal);
+    landRatio = land / population;
+    alert(landRatio);
+    if (starvedTotal == 0) {
+      points = points + 1;
+    }
+    if (starvedTotal > 10) {
+      points = points - 1;
+    }
+    if (starvedTotal > 20) {
+      points = points - 1;
+    }
+    if (landRatio > 10) {
+      points = points + 1;
+    }
+    if (landRatio > 20) {
+      points = points + 1;
+    }
+    if (landRatio < 10) {
+      points = points - 1;
+    }
+    if (landRatio < 20) {
+      points = points - 1;
+    }
+    alert("YOU WIN!! You got " + points + "!");
   }
 }
 //ration updating
