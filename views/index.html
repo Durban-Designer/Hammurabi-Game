@@ -16,7 +16,9 @@
       <div class="box b">
         <div class="report">
           <strong>Overlord Hammurabi</strong>: I beg to report to you,
-          In the <strong>Year <span class="year">3001</span></strong>, <strong><span class="starved">0</span></strong> civilians starved.
+          <span class="plague">An enemy incursion has swept over your demense! <strong><span class="plagueNumber">0</span> Citizens have perished!!</strong></span>
+          In the <strong>Year <span class="year">3001</span></strong>,
+          <strong><span class="starved">0</span></strong> civilians starved.
           <strong><span class="immigrants">5</span></strong> civilians came to the city.
           The Dominion population is now <strong><span class="population">100</span></strong>.
           The Dominion now owns <strong><span class="land">1000</span></strong> quadrants.
@@ -31,18 +33,17 @@
       </div>
       <div class="box c">
         <div class="input">
-          <span class="question">How many quadrants do you wish to appropriate?</span> </br><textarea placeholder="enter negative to barter" class="landBuy" rows="1" cols="25"></textarea></br>
-          <span class="question">How many rations do you wish to feed your citizens?</span> </br><textarea placeholder="each citizen needs 20/year" class="food" rows="1" cols="25"></textarea></br>
-          <span class="question">How many quadrants do you wish to inseminate?</span> </br><textarea placeholder="quadrant = 1ration" class="plant" rows="1" cols="25" ></textarea>
+          <span class="question">How many quadrants do you wish to appropriate?</span> </br><textarea placeholder="enter negative to barter" class="landBuy" rows="1" cols="25" type="number"></textarea></br>
+          <span class="question">How many rations do you wish to feed your citizens?</span> </br><textarea placeholder="each citizen needs 20/year" class="food" rows="1" cols="25" type="number"></textarea></br>
+          <span class="question">How many quadrants do you wish to inseminate?</span> </br><textarea placeholder="quadrant = 1ration" class="plant" rows="1" cols="25" type="number"></textarea>
         </div>
       </div>
       <div class="box d">
         <div class="btn">
-          <button class="startNew">New Game</button>
-          <button class="makeItSo button">Make it So!</button>
+        <button class="startNew">New Game</button>
+        <button class="makeItSo button">Make it So!</button>
         </div>
       </div>
-    </div>
   </body>
   <script type="text/javascript" src="javascript/game.js"></script>
 </html>
