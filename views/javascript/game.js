@@ -42,9 +42,12 @@ function gameUpdate() {
   $(".rationsStore").html(rationsStore);
   $(".landTrade").html(landTrade);
   $(".rationsCounter").html(rations);
+  if (year == 3011) {
+    alert("YOU WIN!!");
+  }
 }
 //ration updating
-$( ".landBuy" ).on("keyup",rationCalc);
+$( ".landBuy" ).on("keyup"), rationCalc);
 $( ".food" ).on("keyup", rationCalc);
 $( ".plant" ).on("keyup", rationCalc);
 function rationCalc() {
@@ -58,3 +61,7 @@ function rationCalc() {
     $(".button").addClass(".makeItSo");
   }
 }
+$(".startNew").on("click", refresh);
+  function refresh() {
+  location.reload();
+  }
