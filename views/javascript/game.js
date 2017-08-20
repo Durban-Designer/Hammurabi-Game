@@ -47,7 +47,7 @@ function gameUpdate() {
   }
 }
 //ration updating
-$( ".landBuy" ).on("keyup"), rationCalc);
+$( ".landBuy" ).on("keyup", rationCalc);
 $( ".food" ).on("keyup", rationCalc);
 $( ".plant" ).on("keyup", rationCalc);
 function rationCalc() {

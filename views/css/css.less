@@ -10,7 +10,7 @@
 
 /*Background*/
 body {
-  background-image: url(/images/BackgroundPC.png);
+  background-image: url(../images/BackgroundPC.png);
   background-position: center center;
   background-color: @background-color;
   background-attachment: fixed;
@@ -32,16 +32,18 @@ h4 {
 }
 
 .info {
-  column-count: 2;
-  width: 50%;
+  width: 45%;
   text-align: justify;
 }
 
 .report {
+  float:left;
+  width:50%;
+  overflow:hidden;
   color:@primary-color;
   font-family:@light-font;
   font-size: 12px;
-  margin-bottom: 40px;
+  padding-right: 5px;
 }
 
 strong {
@@ -51,6 +53,7 @@ strong {
 }
 
 .count {
+  margin-top: 10px;
   float: right;
   color:@primary-color;
   border: 5px;
@@ -61,10 +64,14 @@ strong {
 /*questions*/
 .input {
   text-align: justify;
-  display: block;
+  margin-top: 5px;
+  float:left;
+  width:45%;
+  overflow:hidden;
   color:@primary-color;
   font-family:@light-font;
   font-size: 12px;
+  padding-left: 5px;
 }
 
 textarea {
@@ -78,11 +85,13 @@ textarea {
 
 /*buttons*/
 .btn {
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
   margin-top: 4%;
 }
 
-button
-{
+button{
   -webkit-border-radius: 6;
     -moz-border-radius: 6;
     border-radius: 6px;
@@ -106,3 +115,11 @@ button:hover {
   margin-right: 60px;
 }
 /*buttons end*/
+
+/*winScreen*/
+.youWin {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 40%;
+}
