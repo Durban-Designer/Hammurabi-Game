@@ -50,10 +50,10 @@ function gameUpdate() {
   $( ".food" ).val("");
   $( ".plant" ).val("");
   //plague functionality
-  plague = Math.floor(Math.random() * 10) + 1;
+  plague = Math.floor(Math.random() * 25) + 1;
   plagueNumber = Math.ceil((Math.random() * .6) * population) + 1;
   $(".plague").css({display: "none"});
-  if (plague == 6 || plague == 7) {
+  if (plague == 6 || plague == 12) {
     $(".plague").css({display: "inline"});
     $(".plagueNumber").html(plagueNumber);
     population = population - plagueNumber;
