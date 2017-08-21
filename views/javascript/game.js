@@ -11,7 +11,8 @@ let landTrade = 22;
 let rations = 2800;
 let starvedTotal = 0;
 let points = 0;
-var landBuy, food, plant, plagueNumber, landRatio;
+let landRatio = 10;
+var landBuy, food, plant, plagueNumber;
 //gameUpdate
 $(".makeItSo").off().on("click", gameUpdate);
 function gameUpdate() {
@@ -35,6 +36,8 @@ function gameUpdate() {
   spaceCrabs = Math.floor(Math.random() * .2) * rationsStore;
   rationsStore = rationsStore - spaceCrabs;
   landTrade = Math.floor(Math.random() * 9) + 17;
+  landRatio = land / population
+
   rations = rationsStore;
   $(".year").html(year);
   $(".starved").html(starved);
@@ -46,6 +49,8 @@ function gameUpdate() {
   $(".rationsStore").html(rationsStore);
   $(".landTrade").html(landTrade);
   $(".rationCounter").html(rations);
+  $(".landRatio").html(landRatio);
+  $(".points").html(points);
   $( ".landBuy" ).val("");
   $( ".food" ).val("");
   $( ".plant" ).val("");

@@ -16,7 +16,6 @@
 }
 
 .box {
-  background-color: none;
   border-radius: 5px;
   padding: 20px;
   font-size: 150%;
@@ -44,6 +43,20 @@
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row: 3;
+}
+
+.e {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
+}
+
+.f {
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row-start: 1;
+  grid-row-end: 4;
 }
 
 /*Background*/
@@ -155,10 +168,28 @@ button:hover {
 }
 /*buttons end*/
 
-/*winScreen*/
+/*EndScreen*/
 .youWin {
-  margin-left: auto;
-  margin-right: auto;
+  display: none;
+  margin-left: none;
+  margin-right: none;
   text-align: center;
-  width: 40%;
+  margin-top: 100px;
 }
+
+.youFail {
+  display: none;
+  margin-left: 60px;
+  margin-right: none;
+  text-align: center;
+}
+
+.endReport{
+  display: none;
+  margin-top: 40px;
+  color: @primary-color;
+  font-family: @bold-font;
+  font-size: 24px;
+}
+
+/* EndScreen end*/
