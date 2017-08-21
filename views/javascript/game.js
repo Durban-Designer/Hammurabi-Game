@@ -43,7 +43,6 @@ function gameUpdate() {
   $(".landTrade").html(landTrade);
   $(".rationsCounter").html(rations);
   if (year == 3011) {
-    alert("YOU WIN!!");
   }
 }
 //ration updating
