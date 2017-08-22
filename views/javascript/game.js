@@ -33,11 +33,11 @@ function gameUpdate() {
   land = Number(land) + Number(landBuy);
   harvest = Math.floor(Math.random() * 5) + 1;
   rationsStore = rationsStore - food + (harvest * plant);
-  spaceCrabs = Math.floor(Math.random() * .2) * rationsStore;
+  spaceCrabs = Math.floor((Math.random() * .2) * Number(rationsStore));
   rationsStore = rationsStore - spaceCrabs;
   landTrade = Math.floor(Math.random() * 9) + 17;
   landRatio = land / population
-
+  alert(spaceCrabs);
   rations = rationsStore;
   $(".year").html(year);
   $(".starved").html(starved);
@@ -49,14 +49,12 @@ function gameUpdate() {
   $(".rationsStore").html(rationsStore);
   $(".landTrade").html(landTrade);
   $(".rationCounter").html(rations);
-  $(".landRatio").html(landRatio);
-  $(".points").html(points);
   $( ".landBuy" ).val("");
   $( ".food" ).val("");
   $( ".plant" ).val("");
   //plague functionality
   plague = Math.floor(Math.random() * 25) + 1;
-  plagueNumber = Math.ceil((Math.random() * .6) * population) + 1;
+  plagueNumber = Math.ceil((Math.random() * .5) * population) + 1;
   $(".plague").css({display: "none"});
   if (plague == 6 || plague == 12) {
     $(".plague").css({display: "inline"});
@@ -64,32 +62,70 @@ function gameUpdate() {
     population = population - plagueNumber;
     $(".population").html(population);
   }
+  //failure
+  if (starvedTotal >= 50) {
+    pointCalc();
+    $(".wrapper").css({"grid-template-rows":"150px 140px 120px 120px"});
+    $(".b").css({display: "none"});
+    $(".c").css({display: "none"});
+    $(".d").css({display: "none"});
+    $(".e").css({"grid-row":"4"});
+    $(".g").css({display: "inline"});
+    $(".h").css({display: "inline"});
+    $(".starvedTotal").html(starvedTotal);
+    $(".landRatio").html(landRatio);
+    $(".points").html(points);
+  }
   //game ending
-  if (year == 3011) {
+  if (year == 3011 & starvedTotal < 50) {
     landRatio = land / population;
-    alert(landRatio);
-    if (starvedTotal == 0) {
-      points = points + 1;
+    pointCalc();
+    $(".wrapper").css({"grid-template-rows":"150px 260px 120px 120px"});
+    $(".b").css({display: "none"});
+    $(".c").css({display: "none"});
+    $(".d").css({display: "none"});
+    $(".e").css({"grid-row":"4"});
+    $(".f").css({display: "inline"});
+    $(".h").css({display: "inline"});
+    $(".starvedTotal").html(starvedTotal);
+    $(".landRatio").html(landRatio);
+    $(".points").html(points);
+    if (points == 0) {
+      $(".fink").css({display: "none"});
+      $(".meh").css({display: "inline"});
     }
-    if (starvedTotal > 10) {
-      points = points - 1;
+    if (points == 1) {
+      $(".fink").css({display: "none"});
+      $(".good").css({display: "inline"});
     }
-    if (starvedTotal > 20) {
-      points = points - 1;
+    if (points == 2) {
+      $(".wrapper").css({"grid-template-rows":"150px 260px 180px 120px"});
+      $(".fink").css({display: "none"});
+      $(".best").css({display: "inline"});
     }
-    if (landRatio > 10) {
-      points = points + 1;
-    }
-    if (landRatio > 20) {
-      points = points + 1;
-    }
-    if (landRatio < 10) {
-      points = points - 1;
-    }
-    if (landRatio < 20) {
-      points = points - 1;
-    }
-    alert("YOU WIN!! You got " + points + "!");
+  }
+}
+function pointCalc() {
+  if (starvedTotal == 0) {
+    points = points + 1;
+  }
+  if (starvedTotal > 10) {
+    points = points - 1;
+  }
+  if (starvedTotal > 20) {
+    points = points - 1;
+  }
+  if (landRatio > 10) {
+    points = points + 1;
+  }
+  if (landRatio > 15) {
+    points = points + 1;
+  }
+  if (landRatio < 10) {
+    points = points - 1;
+  }
+  if (landRatio < 20) {
+    points = points - 1;
   }
 }
 //ration updating

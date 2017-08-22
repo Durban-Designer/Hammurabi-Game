@@ -9,8 +9,8 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 1fr 2fr 2fr 1fr;
-  grid-template-rows: 150px 200px 100px auto;
+  grid-template-columns: 15% 2fr 2fr 15%;
+  grid-template-rows: 150px 260px 50px 200px;
   grid-gap: 10px;
   color: #444;
 }
@@ -20,43 +20,62 @@
   padding: 20px;
   font-size: 150%;
 }
-
+//title
 .a {
+  display: inline;
   grid-column-start: 1;
   grid-column-end: 5;
   grid-row: 1;
+  z-index: 3;
 }
-
+//report
 .b {
+  display: inline;
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row: 2;
 }
-
+//ration counter
 .c {
-  grid-column-start: 3;
-  grid-column-end: 4;
-  grid-row: 2;
-}
-
-.d {
+  display: inline;
   grid-column-start: 2;
   grid-column-end: 4;
   grid-row: 3;
 }
-
-.e {
-  grid-column-start: 2;
+//inputs
+.d {
+  display: inline;
+  grid-column-start: 3;
   grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 4;
+  grid-row: 2;
 }
-
-.f {
+//buttons
+.e {
+  display: inline;
   grid-column-start: 2;
   grid-column-end: 4;
-  grid-row-start: 1;
-  grid-row-end: 4;
+  grid-row: 4;
+}
+//win screen
+.f {
+  display: none;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row: 2;
+}
+//failscreen
+.g {
+  display: none;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row: 2;
+}
+//endreport
+.h {
+  display: none;
+  grid-column-start: 2;
+  grid-column-end: 4;
+  grid-row: 3;
 }
 
 /*Background*/
@@ -93,9 +112,19 @@ h4 {
 }
 
 .report {
-  color:@primary-color;
+  width: 240px;
+  color: @primary-color;
   font-family:@light-font;
   font-size: 12px;
+  text-align: justify;
+  float: right;
+  margin-right: 40px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: @primary-color;
+  border-size: 2px;
+  padding: 6px;
+  background-color: @background-color;
 }
 
 strong {
@@ -109,22 +138,39 @@ strong {
 }
 
 .count {
-  margin-top: 10px;
-  float: right;
+  margin-top: 20px;
   color:@primary-color;
   font-size: 18px;
+  text-align: center;
+}
+
+.borderCounter {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: @primary-color;
+  border-size: 2px;
+  padding: 6px;
+  background-color: @background-color;
 }
 /*Report end*/
 
 /*questions*/
 .input {
+  width: 240px;
   text-align: justify;
   margin-top: 5px;
-  overflow:hidden;
+  overflow: hidden;
+  float: left;
+  margin-left: 40px;
   color:@primary-color;
   font-family:@light-font;
   font-size: 12px;
-  padding-left: 5px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: @primary-color;
+  border-size: 2px;
+  padding: 6px;
+  background-color: @background-color;
 }
 
 textarea {
@@ -150,7 +196,7 @@ button{
     color: @primary-color;
     font-family: @bold-font;
     font-size: 14px;
-    background: none;
+    background-color: @background-color;
     padding: 8px 16px;
     text-decoration: none;
 }
@@ -170,26 +216,109 @@ button:hover {
 
 /*EndScreen*/
 .youWin {
-  display: none;
   margin-left: none;
   margin-right: none;
   text-align: center;
-  margin-top: 100px;
 }
 
 .youFail {
-  display: none;
-  margin-left: 60px;
-  margin-right: none;
+  margin-left: auto;
+  margin-right: auto;
   text-align: center;
 }
 
 .endReport{
-  display: none;
-  margin-top: 40px;
+  text-align: center;
   color: @primary-color;
   font-family: @bold-font;
   font-size: 24px;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: @primary-color;
+  border-size: 2px;
+  padding: 6px;
+  background-color: @background-color;
+
+}
+
+.fink {
+  display: inline;
+}
+
+.meh {
+  display: none;
+}
+
+.good {
+  display: none;
+}
+
+.best {
+  display: none;
 }
 
 /* EndScreen end*/
+//mobile support
+@media screen and (max-width:760) {
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 150px 200px 200px 200px;
+    grid-gap: 10px;
+    color: #444;
+  }
+
+  //title
+  .a {
+    display: inline;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  //report
+  .b {
+    display: inline;
+    grid-column: 2;
+    grid-row: 2;
+  }
+  //ration counter
+  .c {
+    display: inline;
+    grid-column-start: 2;
+    grid-column-end: 4;
+    grid-row: 3;
+  }
+  //inputs
+  .d {
+    display: inline;
+    grid-column: 2;
+    grid-row: 3;
+  }
+  //buttons
+  .e {
+    display: inline;
+    grid-column: 2;
+    grid-row: 4;
+  }
+  //win screen
+  .f {
+    display: none;
+    grid-column: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+  }
+  //failscreen
+  .g {
+    display: none;
+    grid-column: 2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+  }
+  //endreport
+  .e {
+    display: none;
+    grid-column: 2;
+    grid-row-start: 3;
+    grid-row-end: 4;
+  }
+
+}
