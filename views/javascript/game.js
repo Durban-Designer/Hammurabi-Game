@@ -36,8 +36,7 @@ function gameUpdate() {
   spaceCrabs = Math.floor((Math.random() * .2) * Number(rationsStore));
   rationsStore = rationsStore - spaceCrabs;
   landTrade = Math.floor(Math.random() * 9) + 17;
-  landRatio = land / population
-  alert(spaceCrabs);
+  landRatio = Math.ceil(land / population);
   rations = rationsStore;
   $(".year").html(year);
   $(".starved").html(starved);
