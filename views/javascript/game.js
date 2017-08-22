@@ -56,10 +56,14 @@ function gameUpdate() {
   plagueNumber = Math.ceil((Math.random() * .5) * population) + 1;
   $(".plague").css({display: "none"});
   if (plague == 6 || plague == 12) {
+    $(".wrapper").css({"grid-template-rows":"150px 360px 50px 200px"});
     $(".plague").css({display: "inline"});
     $(".plagueNumber").html(plagueNumber);
     population = population - plagueNumber;
     $(".population").html(population);
+  }
+  if (plague != 6 & plague != 12) {
+    $(".wrapper").css({"grid-template-rows":"150px 300px 50px 200px"});
   }
   //failure
   if (starvedTotal >= 50) {
@@ -152,4 +156,8 @@ function rationCalc() {
 //new game
 $(".startNew").on("click", function(){
   location.reload();
+});
+//mobile zoom fix
+document.addEventListener("gesturestart", function(e) {
+  e.preventDefault();
 });
