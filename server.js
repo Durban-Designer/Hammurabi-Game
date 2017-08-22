@@ -1,7 +1,11 @@
 var express = require("express");
+var lessMiddleware = require('less-middleware');
 var app = express();
 var router = express.Router();
 var path = __dirname + '/views/';
+
+app.use(lessMiddleware(path));
+app.use(express.static(path));
 
 router.use(function (req,res,next) {
   console.log("/" + req.method);
