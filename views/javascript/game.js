@@ -157,7 +157,7 @@ function rationCalc() {
 $(".startNew").on("click", function(){
   location.reload();
 });
-//mobile zoom fix
+/*mobile zoom fix
 document.addEventListener("gesturestart", function(e) {
   e.preventDefault();
-});
+});*/
