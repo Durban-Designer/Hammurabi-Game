@@ -6,6 +6,8 @@
   },
   "dependencies": {
     "express": "latest",
+    "jquery": "^3.2.1",
+    "less": "^2.7.2",
     "mongo": "^0.1.0"
   }
 }
